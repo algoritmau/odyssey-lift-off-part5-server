@@ -16,7 +16,9 @@ const typeDefs = gql`
     description: String!
     author: Author!
     thumbnail: String
-    length: Int
+    "The track's approximate length to complete, in seconds"
+    durationInSeconds: Int
+    length: Int @deprecated(reason: "Use durationInSeconds instead")
     modules: [Module!]!
     modulesCount: Int
     numberOfViews: Int
@@ -25,7 +27,9 @@ const typeDefs = gql`
   type Module {
     id: ID!
     title: String!
-    length: Int
+    "The module's video duration, in seconds"
+    durationInSeconds: Int
+    length: Int @deprecated(reason: "Use durationInSeconds")
   }
 
   type Author {
